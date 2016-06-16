@@ -11,56 +11,82 @@
         <table border="1" style="width:100%" border-collapse="collapse">
             <tr>
                 <td>員工編號</td>
-                <td colspan="3"><input type="text" name="empId" value="@ViewBag.empId" disabled/></td>
+                <td colspan="3"><input type="text" name="empId" value="@ViewBag.empId" /></td>
             </tr>
             <tr>
-                <td>負責員工</td>
-                <td colspan="3">
-                    <select name="emplo">
-                        <option value="">選擇負責員工</option>
-                        @foreach (var item in (List<Finaltest.Models.Employees>) ViewBag.employees)
+                <td>姓</td>
+                <td>
+                    <select name="lastname">
+                        <option value="">姓</option>
+                        @foreach (var item in (List<Finaltest.Models.Employees>) ViewBag.employee)
                         {
-                            <option value="">@item.FirstName</option>
+                            <option value="@item.LastName">@item.LastName</option>
+                        }
+                    </select>
+                </td>
+                <td>名</td>
+                <td>
+                    <select name="firstname">
+                        <option value="">名</option>
+                        @foreach (var item in (List<Finaltest.Models.Employees>)ViewBag.employee)
+                        {
+                            <option value="@item.FirstName">@item.FirstName</option>
+                        }
+                    </select>
+                </td>
+
+            </tr>
+            <tr>
+                <td>職位</td>
+                <td>
+                    <select name="title">
+                        <option value="">選擇職位</option>
+                       @foreach (var item in (List<Finaltest.Models.Employees>)ViewBag.employee)
+                       {
+                            <option value="@item.Title">@item.Title</option>
+                       }
+                    </select>
+                </td>
+                <td>職稱</td>
+                <td>
+                    <select name="titleofcourtesy">
+                        <option value="">職稱</option>
+                        @foreach (var item in (List<Finaltest.Models.Employees>)ViewBag.employee)
+                        {
+                            <option value="@item.TitleOfCourtesy">@item.TitleOfCourtesy</option>
                         }
                     </select>
                 </td>
             </tr>
             <tr>
-                <td>職位</td>
-                <td colspan="3">
-                    <select name="title">
-                        <option value="">選擇職位</option>
-                       @foreach (var item in (List<Finaltest.Models.Employees>)ViewBag.employees)
-                       {
-                            <option value="">@item.Title</option>
-                       }
-                    </select>
-                </td>
-            </tr>
-            <tr>
                 <td>生日</td>
-                <td><input type="date" /></td>
+                <td><input type="date" name="birthdate"/></td>
                 <td>聘用日期</td>
-                <td><input type="date" /></td>
+                <td><input type="date" name="hiredate"/></td>
             </tr>
             <tr>
                 <td>地址</td>
-                <td><input type="text" /></td>
+                <td><input type="text" name="add"/></td>
                 <td>城市</td>
-                <td><input type="text" /></td>
+                <td><input type="text" name="city"/></td>
             </tr>
             <tr>
                 <td>地區</td>
-                <td><input type="text" /></td>
+                <td><input type="text" name="region"/></td>
                 <td>郵遞區號</td>
-                <td><input type="text" /></td>
+                <td><input type="text" name="postalcode"/></td>
+            </tr>
+            <tr>
+                <td>國家</td>
+                <td><input type="text" name="country" /></td>
+                <td>電話</td>
+                <td><input type="text" name="phone" /></td>
             </tr>
             <tr>
                 <td></td>
                 <td colspan="3">
-                    <input type="submit" value="查詢" />
-                    <input type="reset" value="清除" />
-                    <input type="button" value="新增員工" />
+                    <input type="submit" value="存檔" />
+                    <a href="/search"><input type="button" value="回上一頁" /></a>
                 </td>
             </tr>
         </table>

@@ -24,10 +24,25 @@
             <td>@item.BirthDate</td>
             <td>@item.HireDate</td>
             <td><a href="/Employee/update?empId=@item.EmployeeID"><input type="button" value="修改" /></a></td>
-            <td><input type="button" value="刪除" /></td>
+            <td><input type="button" value="刪除" onclick="delemp('@item.EmployeeID')"/></td>
         </tr>
      }
         
     </table>
 </body>
 </html>
+<script>
+    function delemp(emploId) {
+        $.ajax({
+            type: "GET",
+            url: "/Employee/delete",
+            data: {
+                emploId: emploId
+            },
+            contentType: "application/json; charset=utf-8",
+            dataType: "json"
+        })
+        alert("刪除成功");
+        document.location.reload();
+    }
+</script>

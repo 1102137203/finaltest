@@ -11,54 +11,90 @@
         <table border="1" style="width:100%" border-collapse="collapse">
             <tr>
                 <td>員工編號</td>
-                <td colspan="3"><input type="text" name="empId" /></td>
+                <td colspan="3"><input type="text" name="empId" value="@ViewBag.data.EmployeeID" /></td>
             </tr>
             <tr>
-                <td>負責員工</td>
-                <td colspan="3">
-                    <select name="emplo">
-                        <option value="">選擇負責員工</option>
-                       
+                <td>姓</td>
+                <td>
+                    <select name="lastname">
+                        <option value="@ViewBag.data.LastName">@ViewBag.data.LastName</option>
+                        @foreach (var item in (List<Finaltest.Models.Employees>)ViewBag.bingolastnamelist)
+                        {
+                            <option value="@item.LastName">@item.LastName</option>
+                        }
+                    </select>
+                </td>
+                <td>名</td>
+                <td>
+                    <select name="firstname">
+                        <option value="@ViewBag.data.FirstName">@ViewBag.data.FirstName</option>
+                        @foreach (var item in (List<Finaltest.Models.Employees>)ViewBag.bingofirstnamelist)
+                        {
+                            <option value="@item.FirstName">@item.FirstName</option>
+                        }
                     </select>
                 </td>
             </tr>
             <tr>
                 <td>職位</td>
-                <td colspan="3">
+                <td>
                     <select name="title">
-                        <option value="">選擇職位</option>
-                        
-                        
+                        <option value="@ViewBag.data.Title">@ViewBag.data.Title</option>
+                        @foreach (var item in (List<Finaltest.Models.Employees>)ViewBag.bingotitlelist)
+                        {
+                            <option value="@item.Title">@item.Title</option>
+                        }
+                    </select>
+                </td>
+                <td>職稱</td>
+                <td>
+                    <select name="titleofcourtesy">
+                        <option value="@ViewBag.data.TitleOfCourtesy">@ViewBag.data.TitleOfCourtesy</option>
+                        @foreach (var item in (List<Finaltest.Models.Employees>)ViewBag.bingotitleofcourtesylist)
+                        {
+                            <option value="@item.TitleOfCourtesy">@item.TitleOfCourtesy</option>
+                        }
                     </select>
                 </td>
             </tr>
             <tr>
                 <td>生日</td>
-                <td><input type="date" /></td>
+                <td><input type="date" name="birthdate" value="@ViewBag.birthDate"/></td>
                 <td>聘用日期</td>
-                <td><input type="date" /></td>
+                <td><input type="date" name="hiredate" value="@ViewBag.hireDate"/></td>
             </tr>
             <tr>
                 <td>地址</td>
-                <td><input type="text" /></td>
+                <td><input type="text" name="add" value="@ViewBag.data.Address" /></td>
                 <td>城市</td>
-                <td><input type="text" /></td>
+                <td><input type="text" name="city" value="@ViewBag.data.City" /></td>
             </tr>
             <tr>
                 <td>地區</td>
-                <td><input type="text" /></td>
+                <td><input type="text" name="region" value="@ViewBag.data.Region"/></td>
                 <td>郵遞區號</td>
-                <td><input type="text" /></td>
+                <td><input type="text" name="postalcode" value="@ViewBag.data.PostalCode" /></td>
+            </tr>
+            <tr>
+                <td>國家</td>
+                <td><input type="text" name="country" value="@ViewBag.data.Country" /></td>
+                <td>電話</td>
+                <td><input type="text" name="phone" value="@ViewBag.data.Phone" /></td>
             </tr>
             <tr>
                 <td></td>
                 <td colspan="3">
-                    <input type="submit" value="查詢" />
-                    <input type="reset" value="清除" />
-                    <input type="button" value="新增員工" />
+                    <input type="submit" value="存檔" />
+                    <input type="button" value="刪除" />
+                    <input type="button" value="回前一頁" onclick="previous()"/>
                 </td>
             </tr>
         </table>
     }
 </body>
 </html>
+<script>
+    function previous() {
+        history.back();
+    }
+</script>
