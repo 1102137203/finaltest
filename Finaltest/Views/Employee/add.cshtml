@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "add";
+}
+
+<h2>add</h2>
+<html>
+<body>
+    @using (Html.BeginForm("add", "Employee", FormMethod.Post))
+    {
+        <table border="1" style="width:100%" border-collapse="collapse">
+            <tr>
+                <td>員工編號</td>
+                <td colspan="3"><input type="text" name="empId" value="@ViewBag.empId" disabled/></td>
+            </tr>
+            <tr>
+                <td>負責員工</td>
+                <td colspan="3">
+                    <select name="emplo">
+                        <option value="">選擇負責員工</option>
+                        @foreach (var item in (List<Finaltest.Models.Employees>) ViewBag.employees)
+                        {
+                            <option value="">@item.FirstName</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>職位</td>
+                <td colspan="3">
+                    <select name="title">
+                        <option value="">選擇職位</option>
+                       @foreach (var item in (List<Finaltest.Models.Employees>)ViewBag.employees)
+                       {
+                            <option value="">@item.Title</option>
+                       }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>生日</td>
+                <td><input type="date" /></td>
+                <td>聘用日期</td>
+                <td><input type="date" /></td>
+            </tr>
+            <tr>
+                <td>地址</td>
+                <td><input type="text" /></td>
+                <td>城市</td>
+                <td><input type="text" /></td>
+            </tr>
+            <tr>
+                <td>地區</td>
+                <td><input type="text" /></td>
+                <td>郵遞區號</td>
+                <td><input type="text" /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td colspan="3">
+                    <input type="submit" value="查詢" />
+                    <input type="reset" value="清除" />
+                    <input type="button" value="新增員工" />
+                </td>
+            </tr>
+        </table>
+    }
+</body>
+</html>

@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "search";
+}
+
+<h2>search</h2>
+
+<html>
+<body>
+ <table border="1" style="width:100%" border-collapse="collapse">
+        <tr>
+            <td>員工編號</td>
+            <td>負責員工</td>
+            <td>生日</td>
+            <td>聘用日期</td>
+            <td></td>
+            <td></td>
+        </tr>
+     @foreach (var item in (List<Finaltest.Models.Employees>)ViewBag.bingo)
+     {
+        <tr>
+            <td>@item.EmployeeID</td>
+            <td>@item.FirstName</td>
+            <td>@item.BirthDate</td>
+            <td>@item.HireDate</td>
+            <td><a href="/Employee/update?empId=@item.EmployeeID"><input type="button" value="修改" /></a></td>
+            <td><input type="button" value="刪除" /></td>
+        </tr>
+     }
+        
+    </table>
+</body>
+</html>
